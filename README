@@ -1,0 +1,5 @@
+In theory this will operate similar to how the PHP strtotime functions. Instead of outputting a timestamp, we'll output a DateTime object, though. 
+
+The main task I'm working on right now is porting PHP 5.3's unit tests for strtotime to this project and implement from those.
+
+I'll also be using this as guidance, as well: http://us3.php.net/manual/en/datetime.formats.php
