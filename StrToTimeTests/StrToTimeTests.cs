@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using strtotimedotnet;
+using System.Globalization;
 
 namespace StrToTimeTests
 {
@@ -70,10 +71,46 @@ namespace StrToTimeTests
 
 			DateTime now = new DateTime();
 
-			Assert.AreEqual<DateTime>(new DateTime(now.Year, now.Month, now.Day, 7, 15, 0, DateTimeKind.Local), output1);
-			Assert.AreEqual<DateTime>(new DateTime(now.Year, now.Month, now.Day, 6, 45, 0, DateTimeKind.Local), output2);
-			Assert.AreEqual<DateTime>(new DateTime(now.Year, now.Month, now.Day, 19, 15, 0, DateTimeKind.Local), output3);
-			Assert.AreEqual<DateTime>(new DateTime(now.Year, now.Month, now.Day, 18, 45, 0, DateTimeKind.Local), output4);
+			Assert.AreEqual<DateTime>(new DateTime(now.Year, now.Month, now.Day, 7, 15, 0), output1);
+			Assert.AreEqual<DateTime>(new DateTime(now.Year, now.Month, now.Day, 6, 45, 0), output2);
+			Assert.AreEqual<DateTime>(new DateTime(now.Year, now.Month, now.Day, 19, 15, 0), output3);
+			Assert.AreEqual<DateTime>(new DateTime(now.Year, now.Month, now.Day, 18, 45, 0), output4);
+		}
+
+		[TestMethod]
+		public void strtotime2()
+		{
+			const string DATE_ATOM = "";
+			const string DATE_COOKIE = "";
+			const string DATE_ISO8601 = "";
+			const string DATE_RFC822 = "";
+			const string DATE_RFC850 = "";
+			const string DATE_RFC1036 = "";
+			const string DATE_RFC1123 = "";
+			const string DATE_RFC2822 = "";
+			const string DATE_RFC3339 = "";
+			const string DATE_RSS = "";
+			const string DATE_W3C = "";
+			
+			DateTime time = DateTime.Now;
+
+
+
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("d")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("D")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("f")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("F")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("g")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("G")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("m")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("o")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("r")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("s")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("t")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("T")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("u")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("U")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("y")));
 		}
 	}
 }
