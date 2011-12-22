@@ -80,17 +80,17 @@ namespace StrToTimeTests
 		[TestMethod]
 		public void strtotime2()
 		{
-			const string DATE_ATOM = "";
-			const string DATE_COOKIE = "";
-			const string DATE_ISO8601 = "";
-			const string DATE_RFC822 = "";
-			const string DATE_RFC850 = "";
-			const string DATE_RFC1036 = "";
-			const string DATE_RFC1123 = "";
-			const string DATE_RFC2822 = "";
-			const string DATE_RFC3339 = "";
-			const string DATE_RSS = "";
-			const string DATE_W3C = "";
+			const string DATE_ATOM = "yyyy-MM-ddTHH:mm:ssK";
+			const string DATE_COOKIE = "dddd, dd-MMM-yy HH:mm:ss zz00";
+			const string DATE_ISO8601 = "yyyy-MM-ddTHH:mm:sszzzz";
+			const string DATE_RFC822 = "ddd, dd MMM yy HH:mm:ss zzzz";
+			const string DATE_RFC850 = "dddd, dd-MMM-yy HH:mm:ss zz00";
+			const string DATE_RFC1036 = "ddd, dd MMM yy HH:mm:ss zzzz";
+			const string DATE_RFC1123 = "r";
+			const string DATE_RFC2822 = "ddd, dd MMM yyyy HH:mm:ss zzzz";
+			const string DATE_RFC3339 = "yyyy-MM-ddTHH:mm:ssK";
+			const string DATE_RSS = "ddd, dd MMM yyyy HH:mm:ss zzzz";
+			const string DATE_W3C = "yyyy-MM-ddTHH:mm:ssK";
 			
 			DateTime time = DateTime.Now;
 
@@ -104,13 +104,28 @@ namespace StrToTimeTests
 			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("G")));
 			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("m")));
 			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("o")));
-			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("r")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString(DATE_RFC1123)));
 			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("s")));
 			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("t")));
 			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("T")));
 			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("u")));
 			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("U")));
 			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString("y")));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString(DATE_ATOM)));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString(DATE_COOKIE)));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString(DATE_ISO8601)));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString(DATE_RFC822)));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString(DATE_RFC850)));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString(DATE_RFC1036)));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString(DATE_RFC2822)));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString(DATE_RFC3339)));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString(DATE_RSS)));
+			Assert.AreEqual<DateTime>(time, StrToTimeClass.StrToTime(time.ToString(DATE_W3C)));
+		}
+
+		[TestMethod]
+		public void strtotime3()
+		{
 		}
 	}
 }

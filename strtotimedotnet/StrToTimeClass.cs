@@ -28,5 +28,20 @@ namespace strtotimedotnet
 
 		}
 
+		public static String TimeZoneName(DateTime dt)
+		{
+			String sName = TimeZone.CurrentTimeZone.IsDaylightSavingTime(dt)
+				? TimeZone.CurrentTimeZone.DaylightName
+				: TimeZone.CurrentTimeZone.StandardName;
+
+			String sNewName = "";
+			String[] sSplit = sName.Split(new char[] { ' ' });
+			foreach (String s in sSplit)
+				if (s.Length >= 1)
+					sNewName += s.Substring(0, 1);
+
+			return sNewName;
+		}
+
 	}
 }
